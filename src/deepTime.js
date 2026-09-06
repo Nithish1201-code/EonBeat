@@ -22,9 +22,16 @@ function formatMarsTime(msd) {
 }
 
 const yearsFormatter = new Intl.NumberFormat('en-US', { maximumFractionDigits: 6 });
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
 
-export function initDeepTime({ universeEl, marsEl, earthEl, redGiantEl }) {
+export function initDeepTime({ universeEl, marsEl, earthEl, redGiantEl, clockEl, clockDateEl }) {
   const startMs = Date.now();
+
   function tick() {
     const now = new Date();
     const elapsedYears = (now.getTime() - startMs) / 1000 / SECONDS_PER_YEAR;
@@ -33,7 +40,11 @@ export function initDeepTime({ universeEl, marsEl, earthEl, redGiantEl }) {
     redGiantEl.textContent = `${yearsFormatter.format(YEARS_UNTIL_RED_GIANT - elapsedYears)} years`;
     earthEl.textContent = now.toUTCString().replace('GMT', 'UTC');
     marsEl.textContent = formatMarsTime(marsSolDate(now));
+
+    if (clockEl) clockEl.textContent = now.toLocaleTimeString([], { hour12: false });
+    if (clockDateEl) clockDateEl.textContent = dateFormatter.format(now);
   }
+
   tick();
   setInterval(tick, 100);
 }
