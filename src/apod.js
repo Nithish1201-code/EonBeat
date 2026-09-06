@@ -1,10 +1,3 @@
-// NASA Astronomy Picture of the Day (APOD) — the mission's guided
-// deliverable. Shown as a small corner widget instead of a big hero
-// block; clicking it opens the full-size image with its title and
-// explanation. The returned promise resolves once the day's image has
-// fully loaded, so main.js can hold the page reveal on it — see the
-// "load the image fully before startup" requirement in the readme.
-
 const APOD_ENDPOINT = 'https://api.nasa.gov/planetary/apod';
 
 function preloadImage(src) {

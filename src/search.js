@@ -1,8 +1,3 @@
-// A minimal new-tab search bar: plain text goes to a web search,
-// anything that already looks like a URL is navigated to directly.
-// There is no visible button on purpose — press Enter, the same way
-// a browser's own address bar works.
-
 export function initSearch(formEl, inputEl) {
   if (!formEl || !inputEl) return;
 

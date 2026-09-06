@@ -1,63 +1,80 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="is-loading">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EonPulse</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <meta name="description" content="A minimal new tab page: local clock, search, shortcuts, and a running readout of deep time and space weather." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body>
-    <main id="app">
-      <header>
-        <h1>EonPulse</h1>
-        <input id="search-input" type="text" placeholder="Search the web" autofocus />
-      </header>
+    <div id="gate" aria-hidden="true">eonpulse</div>
 
-      <section class="card card-pulse">
-        <div class="waveform" id="waveform">
-          <svg viewBox="-15 -15 230 230">
-            <path class="ring ring-a" d="M200.00,100.00 L201.99,103.56 L203.60,107.24 L204.62,111.00 L204.88,114.74 L204.30,118.39 L202.90,121.87 L200.77,125.13 L198.10,128.13 L195.11,130.90 L192.04,133.50 L189.14,136.02 L186.61,138.56 L184.57,141.25 L183.08,144.17 L182.10,147.40 L181.53,150.95 L181.20,154.77 L180.90,158.78 L180.42,162.83 L179.56,166.76 L178.18,170.39 L176.18,173.57 L173.57,176.18 L170.39,178.18 L166.76,179.56 L162.83,180.42 L158.78,180.90 L154.77,181.20 L150.95,181.53 L147.40,182.10 L144.17,183.08 L141.25,184.57 L138.56,186.61 L136.02,189.14 L133.50,192.04 L130.90,195.11 L128.13,198.10 L125.13,200.77 L121.87,202.90 L118.39,204.30 L114.74,204.88 L111.00,204.62 L107.24,203.60 L103.56,201.99 L100.00,200.00 L96.58,197.89 L93.29,195.91 L90.09,194.28 L86.91,193.18 L83.66,192.66 L80.29,192.73 L76.74,193.29 L73.00,194.15 L69.10,195.11 L65.10,195.90 L61.09,196.29 L57.21,196.10 L53.57,195.19 L50.28,193.51 L47.40,191.10 L44.96,188.08 L42.93,184.61 L41.22,180.90 L39.70,177.18 L38.20,173.65 L36.56,170.45 L34.64,167.68 L32.32,165.36 L29.55,163.44 L26.35,161.80 L22.82,160.30 L19.10,158.78 L15.39,157.07 L11.92,155.04 L8.90,152.60 L6.49,149.72 L4.81,146.43 L3.90,142.79 L3.71,138.91 L4.10,134.90 L4.89,130.90 L5.85,127.00 L6.71,123.26 L7.27,119.71 L7.34,116.34 L6.82,113.09 L5.72,109.91 L4.09,106.71 L2.11,103.42 L0.00,100.00 L-1.99,96.44 L-3.60,92.76 L-4.62,89.00 L-4.88,85.26 L-4.30,81.61 L-2.90,78.13 L-0.77,74.87 L1.90,71.87 L4.89,69.10 L7.96,66.50 L10.86,63.98 L13.39,61.44 L15.43,58.75 L16.92,55.83 L17.90,52.60 L18.47,49.05 L18.80,45.23 L19.10,41.22 L19.58,37.17 L20.44,33.24 L21.82,29.61 L23.82,26.43 L26.43,23.82 L29.61,21.82 L33.24,20.44 L37.17,19.58 L41.22,19.10 L45.23,18.80 L49.05,18.47 L52.60,17.90 L55.83,16.92 L58.75,15.43 L61.44,13.39 L63.98,10.86 L66.50,7.96 L69.10,4.89 L71.87,1.90 L74.87,-0.77 L78.13,-2.90 L81.61,-4.30 L85.26,-4.88 L89.00,-4.62 L92.76,-3.60 L96.44,-1.99 L100.00,-0.00 L103.42,2.11 L106.71,4.09 L109.91,5.72 L113.09,6.82 L116.34,7.34 L119.71,7.27 L123.26,6.71 L127.00,5.85 L130.90,4.89 L134.90,4.10 L138.91,3.71 L142.79,3.90 L146.43,4.81 L149.72,6.49 L152.60,8.90 L155.04,11.92 L157.07,15.39 L158.78,19.10 L160.30,22.82 L161.80,26.35 L163.44,29.55 L165.36,32.32 L167.68,34.64 L170.45,36.56 L173.65,38.20 L177.18,39.70 L180.90,41.22 L184.61,42.93 L188.08,44.96 L191.10,47.40 L193.51,50.28 L195.19,53.57 L196.10,57.21 L196.29,61.09 L195.90,65.10 L195.11,69.10 L194.15,73.00 L193.29,76.74 L192.73,80.29 L192.66,83.66 L193.18,86.91 L194.28,90.09 L195.91,93.29 L197.89,96.58 L200.00,100.00 Z" />
-            <path class="ring ring-b" d="M200.00,100.00 L201.99,103.56 L203.60,107.24 L204.62,111.00 L204.88,114.74 L204.30,118.39 L202.90,121.87 L200.77,125.13 L198.10,128.13 L195.11,130.90 L192.04,133.50 L189.14,136.02 L186.61,138.56 L184.57,141.25 L183.08,144.17 L182.10,147.40 L181.53,150.95 L181.20,154.77 L180.90,158.78 L180.42,162.83 L179.56,166.76 L178.18,170.39 L176.18,173.57 L173.57,176.18 L170.39,178.18 L166.76,179.56 L162.83,180.42 L158.78,180.90 L154.77,181.20 L150.95,181.53 L147.40,182.10 L144.17,183.08 L141.25,184.57 L138.56,186.61 L136.02,189.14 L133.50,192.04 L130.90,195.11 L128.13,198.10 L125.13,200.77 L121.87,202.90 L118.39,204.30 L114.74,204.88 L111.00,204.62 L107.24,203.60 L103.56,201.99 L100.00,200.00 L96.58,197.89 L93.29,195.91 L90.09,194.28 L86.91,193.18 L83.66,192.66 L80.29,192.73 L76.74,193.29 L73.00,194.15 L69.10,195.11 L65.10,195.90 L61.09,196.29 L57.21,196.10 L53.57,195.19 L50.28,193.51 L47.40,191.10 L44.96,188.08 L42.93,184.61 L41.22,180.90 L39.70,177.18 L38.20,173.65 L36.56,170.45 L34.64,167.68 L32.32,165.36 L29.55,163.44 L26.35,161.80 L22.82,160.30 L19.10,158.78 L15.39,157.07 L11.92,155.04 L8.90,152.60 L6.49,149.72 L4.81,146.43 L3.90,142.79 L3.71,138.91 L4.10,134.90 L4.89,130.90 L5.85,127.00 L6.71,123.26 L7.27,119.71 L7.34,116.34 L6.82,113.09 L5.72,109.91 L4.09,106.71 L2.11,103.42 L0.00,100.00 L-1.99,96.44 L-3.60,92.76 L-4.62,89.00 L-4.88,85.26 L-4.30,81.61 L-2.90,78.13 L-0.77,74.87 L1.90,71.87 L4.89,69.10 L7.96,66.50 L10.86,63.98 L13.39,61.44 L15.43,58.75 L16.92,55.83 L17.90,52.60 L18.47,49.05 L18.80,45.23 L19.10,41.22 L19.58,37.17 L20.44,33.24 L21.82,29.61 L23.82,26.43 L26.43,23.82 L29.61,21.82 L33.24,20.44 L37.17,19.58 L41.22,19.10 L45.23,18.80 L49.05,18.47 L52.60,17.90 L55.83,16.92 L58.75,15.43 L61.44,13.39 L63.98,10.86 L66.50,7.96 L69.10,4.89 L71.87,1.90 L74.87,-0.77 L78.13,-2.90 L81.61,-4.30 L85.26,-4.88 L89.00,-4.62 L92.76,-3.60 L96.44,-1.99 L100.00,-0.00 L103.42,2.11 L106.71,4.09 L109.91,5.72 L113.09,6.82 L116.34,7.34 L119.71,7.27 L123.26,6.71 L127.00,5.85 L130.90,4.89 L134.90,4.10 L138.91,3.71 L142.79,3.90 L146.43,4.81 L149.72,6.49 L152.60,8.90 L155.04,11.92 L157.07,15.39 L158.78,19.10 L160.30,22.82 L161.80,26.35 L163.44,29.55 L165.36,32.32 L167.68,34.64 L170.45,36.56 L173.65,38.20 L177.18,39.70 L180.90,41.22 L184.61,42.93 L188.08,44.96 L191.10,47.40 L193.51,50.28 L195.19,53.57 L196.10,57.21 L196.29,61.09 L195.90,65.10 L195.11,69.10 L194.15,73.00 L193.29,76.74 L192.73,80.29 L192.66,83.66 L193.18,86.91 L194.28,90.09 L195.91,93.29 L197.89,96.58 L200.00,100.00 Z" />
-            <path class="ring ring-c" d="M200.00,100.00 L201.99,103.56 L203.60,107.24 L204.62,111.00 L204.88,114.74 L204.30,118.39 L202.90,121.87 L200.77,125.13 L198.10,128.13 L195.11,130.90 L192.04,133.50 L189.14,136.02 L186.61,138.56 L184.57,141.25 L183.08,144.17 L182.10,147.40 L181.53,150.95 L181.20,154.77 L180.90,158.78 L180.42,162.83 L179.56,166.76 L178.18,170.39 L176.18,173.57 L173.57,176.18 L170.39,178.18 L166.76,179.56 L162.83,180.42 L158.78,180.90 L154.77,181.20 L150.95,181.53 L147.40,182.10 L144.17,183.08 L141.25,184.57 L138.56,186.61 L136.02,189.14 L133.50,192.04 L130.90,195.11 L128.13,198.10 L125.13,200.77 L121.87,202.90 L118.39,204.30 L114.74,204.88 L111.00,204.62 L107.24,203.60 L103.56,201.99 L100.00,200.00 L96.58,197.89 L93.29,195.91 L90.09,194.28 L86.91,193.18 L83.66,192.66 L80.29,192.73 L76.74,193.29 L73.00,194.15 L69.10,195.11 L65.10,195.90 L61.09,196.29 L57.21,196.10 L53.57,195.19 L50.28,193.51 L47.40,191.10 L44.96,188.08 L42.93,184.61 L41.22,180.90 L39.70,177.18 L38.20,173.65 L36.56,170.45 L34.64,167.68 L32.32,165.36 L29.55,163.44 L26.35,161.80 L22.82,160.30 L19.10,158.78 L15.39,157.07 L11.92,155.04 L8.90,152.60 L6.49,149.72 L4.81,146.43 L3.90,142.79 L3.71,138.91 L4.10,134.90 L4.89,130.90 L5.85,127.00 L6.71,123.26 L7.27,119.71 L7.34,116.34 L6.82,113.09 L5.72,109.91 L4.09,106.71 L2.11,103.42 L0.00,100.00 L-1.99,96.44 L-3.60,92.76 L-4.62,89.00 L-4.88,85.26 L-4.30,81.61 L-2.90,78.13 L-0.77,74.87 L1.90,71.87 L4.89,69.10 L7.96,66.50 L10.86,63.98 L13.39,61.44 L15.43,58.75 L16.92,55.83 L17.90,52.60 L18.47,49.05 L18.80,45.23 L19.10,41.22 L19.58,37.17 L20.44,33.24 L21.82,29.61 L23.82,26.43 L26.43,23.82 L29.61,21.82 L33.24,20.44 L37.17,19.58 L41.22,19.10 L45.23,18.80 L49.05,18.47 L52.60,17.90 L55.83,16.92 L58.75,15.43 L61.44,13.39 L63.98,10.86 L66.50,7.96 L69.10,4.89 L71.87,1.90 L74.87,-0.77 L78.13,-2.90 L81.61,-4.30 L85.26,-4.88 L89.00,-4.62 L92.76,-3.60 L96.44,-1.99 L100.00,-0.00 L103.42,2.11 L106.71,4.09 L109.91,5.72 L113.09,6.82 L116.34,7.34 L119.71,7.27 L123.26,6.71 L127.00,5.85 L130.90,4.89 L134.90,4.10 L138.91,3.71 L142.79,3.90 L146.43,4.81 L149.72,6.49 L152.60,8.90 L155.04,11.92 L157.07,15.39 L158.78,19.10 L160.30,22.82 L161.80,26.35 L163.44,29.55 L165.36,32.32 L167.68,34.64 L170.45,36.56 L173.65,38.20 L177.18,39.70 L180.90,41.22 L184.61,42.93 L188.08,44.96 L191.10,47.40 L193.51,50.28 L195.19,53.57 L196.10,57.21 L196.29,61.09 L195.90,65.10 L195.11,69.10 L194.15,73.00 L193.29,76.74 L192.73,80.29 L192.66,83.66 L193.18,86.91 L194.28,90.09 L195.91,93.29 L197.89,96.58 L200.00,100.00 Z" />
-            <circle class="core" cx="100" cy="100" r="16" />
-          </svg>
-        </div>
-        <p id="pulse-readout">reading the sun</p>
-        <p id="pulse-detail" class="detail"></p>
+    <canvas id="bg-canvas"></canvas>
+
+    <main id="app">
+      <header class="topbar">
+        <span class="wordmark">eonpulse</span>
+        <a class="source-link" href="https://github.com/Nithish1201-code/EonPulse" target="_blank" rel="noopener">source</a>
+        </header>
+
+      <section class="hero">
+        <h1 id="clock">--:--:--</h1>
+        <p class="clock-date" id="clock-date">—</p>
+
+        <form id="search-form" class="search-form" role="search">
+          <input
+            id="search-input"
+            type="text"
+            placeholder="search, or type a url"
+            autocomplete="off"
+            aria-label="Search the web or open a URL"
+          />
+        </form>
       </section>
 
-      <div class="grid">
-        <section class="card card-universe">
-          <h2>the universe</h2>
-          <p class="figure" id="universe-age"></p>
-          <p class="caption">years old, and counting</p>
-        </section>
+      <nav class="shortcuts" id="shortcuts" aria-label="Quick links"></nav>
 
-        <section class="card card-now">
-          <h2>right now</h2>
-          <div class="row">
-            <span class="row-label">earth</span>
-            <span class="row-value" id="earth-time"></span>
+      <section class="stats-section" aria-label="Deep time and space weather readouts">
+        <div class="stats" id="deep-time-section">
+          <div class="stat-row">
+            <span class="stat-label">age of the universe</span>
+            <span class="stat-value" id="universe-age">—</span>
           </div>
-          <div class="row">
-            <span class="row-label">mars</span>
-            <span class="row-value" id="mars-time"></span>
+          <div class="stat-row">
+            <span class="stat-label">earth, right now (utc)</span>
+            <span class="stat-value" id="earth-time">—</span>
           </div>
-          <p class="caption">sol <span id="mars-sol"></span></p>
-        </section>
-      </div>
-
-      <section class="card card-future">
-        <h2>what's next</h2>
-        <p class="figure" id="red-giant"></p>
-        <p class="caption">years until the Sun swells into a red giant</p>
+          <div class="stat-row">
+            <span class="stat-label">mars, right now</span>
+            <span class="stat-value" id="mars-time">—</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">until the sun becomes a red giant</span>
+            <span class="stat-value" id="red-giant">—</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">solar activity <span class="chip" id="kp-chip">—</span></span>
+            <span class="stat-value" id="kp-readout">connecting to NOAA space weather feed…</span>
+          </div>
+        </div>
       </section>
     </main>
+
+    <button id="apod-widget" class="apod-widget" type="button" aria-haspopup="dialog" aria-label="Open today's NASA astronomy picture" hidden>
+      <img id="apod-thumb" alt="" />
+      <span class="apod-widget-date" id="apod-date"></span>
+    </button>
+
+    <div id="apod-lightbox" class="apod-lightbox" role="dialog" aria-modal="true" aria-label="NASA astronomy picture of the day" hidden>
+      <div class="apod-lightbox-panel">
+        <button id="apod-lightbox-close" class="apod-lightbox-close" type="button" aria-label="Close">×</button>
+        <div id="apod-lightbox-body"></div>
+      </div>
+    </div>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
