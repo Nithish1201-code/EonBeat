@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
 
-export default defineConfig(({ command }) => ({
-    base: command === 'build' ? '/EonPulse/' : '/',
+export default defineConfig(({ mode }) => ({
+  base: mode === 'extension' ? './' : '/EonPulse/',
 }))
